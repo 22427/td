@@ -197,10 +197,10 @@ void unpack_us_4_4_4_4(float *dst, const void *src)
 void unpack_us_5_5_5_1(float *dst, const void *src)
 {
 	const uint16_t& c = *static_cast<const uint16_t*>(src);
-	dst[0] = 1.0f/31.0f*((c>>10)&((1<<5)-1));
-	dst[1] = 1.0f/31.0f*((c>>5 )&((1<<5)-1));
-	dst[2] = 1.0f/31.0f*((c>>1 )&((1<<5)-1));
-	dst[3] =            ((c>>0 )&((1<<1)-1));
+	dst[0] = 1.0f/31.0f*(float)((c>>11)&((1<<5)-1));
+	dst[1] = 1.0f/31.0f*(float)((c>>6 )&((1<<5)-1));
+	dst[2] = 1.0f/31.0f*(float)((c>>1 )&((1<<5)-1));
+	dst[3] = 1.0f/ 1.0f*(float)((c>>0 )&((1<<2)-1));
 }
 
 
@@ -275,12 +275,11 @@ void pack_us_5_5_5_1(void *dst, const float *src)
 	uint16_t& d = *static_cast<uint16_t*>(dst);
 	d = 0;
 
-	uint16_t steps[]={32,32,32,1};
+	uint16_t steps[]={32,32,32,2};
 	uint16_t bits[]={5,5,5,1};
 
-
 	uint16_t shift = 16;
-	for(int c= 0 ; c<3;c++)
+	for(int c= 0 ; c<4;c++)
 	{
 		shift-=bits[c];
 		auto& v = src[c];
@@ -288,7 +287,6 @@ void pack_us_5_5_5_1(void *dst, const float *src)
 		interval = interval<<shift;
 		d |= interval;
 	}
-	d+=src[3]>0.5f?1:0;
 }
 
 void FloatImage::to_texture_layer(TextureLayer &td, Format f, DType t)
