@@ -1,4 +1,4 @@
-td - TextureDatahttps://github.com/22427/td/subscription
+td - TextureData
 ======================================================
 This is a small library/tool containing all features to convert images (png, bmp, tga, ...) into decent looking textures
 in formats supported by OpenGL|ES 2.0.
@@ -11,9 +11,11 @@ The supported formats are
 Dithering
 -------------------------------------------------------
 In order to compensate for color-banding effects a simple Floyd-Steinberg-Dithering is applied to the images during
-quantization. This way even UNSIGNED_SHORT_4_4_4_4 generates well looking textures.
+quantization. This way even 4_4_4_4 generates decent looking textures:
 
 ![Images][ex]
+
+[Original](https://raw.githubusercontent.com/22427/td/master/examples/monarch.png)
 
 MipMaps
 ------------------------------------------------------
