@@ -16,5 +16,4 @@ lib/*
 *.db
 Makefile
 *.stash
-.vscode/*
 
