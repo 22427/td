@@ -1,10 +1,9 @@
 #define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include <stb_image_write.h>
+#include "stb_image_write.h"
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
-#include <stb_image_resize.h>
-
+#include "stb_image_resize.h"
 #include "td_image.h"
 
 namespace td
@@ -397,7 +396,7 @@ std::vector<FloatImage> generate_mip_maps(const FloatImage& img)
 	float* lin_img = (float*)malloc(img.w*img.h*4*sizeof(float));
 	for(int i = 0; i< img.elems();i++)
 	{
-		lin_img[i] = pow((float)img.data[i],2.2f);
+		lin_img[i] = powf((float)img.data[i],2.2f);
 	}
 
 	int curr_w = img.w*2;
@@ -430,7 +429,7 @@ std::vector<FloatImage> generate_mip_maps(const FloatImage& img)
 		res.back().data = (float*) malloc(curr_w*curr_h*sizeof(float)*4);
 		for(int i = 0; i< curr_w*curr_h*4;i++)
 		{
-			res.back().data[i] =pow(working_image[i],1.0f/2.2f);
+			res.back().data[i] =powf(working_image[i],1.0f/2.2f);
 		}
 
 	}

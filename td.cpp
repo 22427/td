@@ -44,7 +44,7 @@ bool print_help(const std::string& msg="")
 	fprintf(stderr,"-dt <dt>  Set output data type to <dT>.     | %s\n","UNSIGNED_BYTE");
 	fprintf(stderr,"\tOne of: UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4,\n\t       UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5\n");
 	fprintf(stderr,"-mm       Genreate MipMaps.                 | %s\n","false");
-	fprintf(stderr,"-d        Disable dithering on quantization | %s\n","false");
+	fprintf(stderr,"-dd       Disable dithering on quantization | %s\n","false");
 
 
 	return false;

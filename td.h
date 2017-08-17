@@ -64,8 +64,8 @@ inline uint32_t size_per_pixel(const Format f, const DType t)
 
 /**
  * @brief The TextureLayer class a texture layer is an actual 2D-bitmap storing
- * widthxheight pixels of a given format in a given type. The lvl represents an
- * aribrary integer which can be used to store the mipmaplevel of this layer.
+ * width x height pixels of a given format in a given type. The lvl represents
+ * an aribrary integer which can be used to store the mipmaplevel of this layer.
  */
 class TextureLayer
 {
@@ -166,8 +166,6 @@ public:
 
 	auto begin() -> decltype(layers.begin()){return layers.begin();}
 	auto end() -> decltype(layers.end()){return layers.end();}
-
-
 };
 
 

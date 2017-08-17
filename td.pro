@@ -3,10 +3,10 @@ TARGET = td
 CONFIG   += console
 CONFIG   -= app_bundle
 
-INCLUDEPATH += submodules/stb include
+INCLUDEPATH +=
 SOURCES += \
-	src/main.cpp \
-    src/td_image.cpp
+	td.cpp \
+    	td_image.cpp
 
 
 CONFIG += c++11
@@ -17,6 +17,6 @@ OBJECTS_DIR = obj
 
 
 HEADERS += \
-	src/td_image.h \
-	src/td.h
+	td_image.h \
+	td.h
 
